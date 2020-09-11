@@ -2,12 +2,49 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+
 function writePassword() {
 
   var numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var lowerChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var specialChars = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~"];
+
+  function getlower(){
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+
+  function getUpper(){
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
+
+  function getNumber(){
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+
+  function getSpecial(){
+    return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+  }
+  
+  
+
+  function chooseLength (){
+  var numberLength = prompt ("Choose length of password between 8 and 120 characters.");
+    if(numberLength < 8){
+      alert ("Invalid imput.")
+    }
+    else if(numberLength < 120){
+      alert(valid)
+    }
+    else(numberLength > 120);{
+      alert ("Invalid imput.")
+    }
+  }
+
+  
+
+    
+  
 
   prompt ("Choose length of password between 8 and 120 characters.")
   confirm ("Would you like lowercase letters?'")
