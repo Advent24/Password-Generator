@@ -4,53 +4,6 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 
 function writePassword() {
-
-  var numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowerChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var specialChars = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~"];
-
-  function getlower(){
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  }
-
-  function getUpper(){
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  }
-
-  function getNumber(){
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  }
-
-  function getSpecial(){
-    return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
-  }
-  
-  
-
-  function chooseLength (){
-  var numberLength = prompt ("Choose length of password between 8 and 120 characters.");
-    if(numberLength < 8){
-      alert ("Invalid imput.")
-    }
-    else if(numberLength < 120){
-      alert(valid)
-    }
-    else(numberLength > 120);{
-      alert ("Invalid imput.")
-    }
-  }
-
-  
-
-    
-  
-
-  prompt ("Choose length of password between 8 and 120 characters.")
-  confirm ("Would you like lowercase letters?'")
-  confirm ("Would you like uppercase letters?'")
-  confirm ("Would you like numeric characters?'")
-  confirm ("Would you like special characters?'")
   
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -59,31 +12,55 @@ function writePassword() {
 
 }
 
-
-
-
-
-
-
-// generate passwords function and returns password
-
-// send prompt for length
-
-// send confirm promts 
-
-// when completed with prompts then password is created based on them
-
-// create arrays with all neccessary characters
-
-// create a var that holds all the criteria that the user has imputed
-
-// create a condintation situation that saves all the chosen characters from the confirm to a new collection
-
-// add validations to make sure at least on character is selected 
-
-// add validation for length of the password between 8 and 120
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+var numberChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowerChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var specialChars = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~"];
+var master = []
+var final = ""
+
+function generatePassword(){
+  
+  var wantLength = prompt ("Choose length of password between 8 and 128 characters.")
+if (wantLength < 8 || wantLength > 128){
+  prompt("Number must be between 8 and 128.")
+}
+
+var wantNumber = confirm ("Would you like numbers?'")
+if (wantNumber){
+  for (i = 0; i < numberChars.length; i++){
+    master.push(numberChars[i])
+  }
+}
+
+var wantLower = confirm ("Would you like lowercase letters?'")
+if (wantLower){
+  for (i = 0; i < lowerChars.length; i++){
+    master.push(lowerChars[i])
+  }
+}
+
+var wantUpper = confirm ("Would you like uppercase letters?'")
+if (wantUpper){
+  for (i = 0; i < upperChars.length; i++){
+    master.push(upperChars[i])
+  }
+}
+
+var wantSpecial = confirm ("Would you like special characters?'")
+if (wantSpecial)
+  for (i = 0; i < specialChars.length; i++){
+    master.push(specialChars[i])
+  }
+
+for(m = 0; m < wantLength; m++){
+  final += master[Math.floor(Math.random() * master.length)];
+}
+
+return final
+
+}
