@@ -1,1 +1,3 @@
 # Password-Generator
+
+I had some trouble getting the ball roling at first thenI watched a video setting up all the variablesa and so-on. Went through the the main body of confirmations and prompts then got stuck at the variable length. I had a tough time trying to get the function to stop when wrong length was imputed but I think I settled on a work around. I dont think its the smoothest way to do this, but I am at least getting a clean pop-up string and prompts and a working password at the end.
